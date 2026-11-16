@@ -1,0 +1,15 @@
+# Changes
+- v4: Runway right side: 3 piece cards REMOVED, replaced by Price box (old: app/_archive/Runway.v1.js). Mouse wheel inside the stage changes the piece. Smoother slide-out animation.
+- v4: Shop filters: 5 rows of chips REMOVED, replaced by gender switch + category row + dropdown bar, plus Season (old: app/_archive/shop-page.v1.js).
+- v4: Photos: a product shows a real photo when its slug is added to IMAGES in app/catalog.js.
+- v3: Runway moved from Home to the Shop category page; new Home with Men/Women toggle; 28 brands.
+- v5: Runway right side: Price box REMOVED (old: _archive/Runway.v2.js), replaced by 2 to 3 photo boxes of the front piece. Left side: "Look 01" number replaced by the price; Add to cart button added next to View details.
+- v5: Checkout is now 4 steps (old single form: _archive/cart-page.v1.js). Remove button added in the cart.
+- v5: Header sub menu changed (old list: _archive/Header.v1.js): now Men, Women, New Arrivals, Sale, Abaya/Gown/Hijab. Home and Shop toggles are square.
+- v5: Added Footer, About content, quick add (+) on cards, more products, abayas, gowns, hijabs, new and sale flags.
+- v6: Back link (text style, right side) on every page except Home. Checkout: "Checkout" heading, black round step numbers with a black tick when done, order summary with product photos and x quantity on every step and on the thank-you page, payment options now 3 (cash, credit/debit card, EasyPaisa/JazzCash). Cart pages are full height so the footer is below the fold. (old: _archive/cart-page.v2.js)
+- v6: Home brand strip moves slowly right to left forever (paused on hover); the global reduced-motion rule that stopped all animation was narrowed.
+- v7: Real products and photos: data/products.csv + photo folders replace the demo products (see ADDING_PHOTOS.md).
+- v8: Photo slots for the Home poster and hero boxes, category tiles (Home and Shop), brand logos and cover photos, banner (public/site/, see /photo-slots).
+- v9: REMOVED the CSV/data folder, the photo scanning script, /photo-slots and public/site (v7 and v8 above). Every place that needs a photo now has a dummy image in public/images/ (see IMAGES.md); replace a file at the same path to change it.
+- v10: Photo paths are now hard-coded one by one in app/images.js (no pattern function). Folders reorganized: men/, women/, home/, brands/<brand>/. Old: public/images/home|categories|products.
