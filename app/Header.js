@@ -6,6 +6,7 @@ const TABS = [["Home","/"],["Shop","/shop"],["Brands","/brands"],["About","/abou
 const SUB = [["Men","/shop?g=men"],["Women","/shop?g=women"],["New Arrivals","/shop?new=1"],["Sale","/shop?sale=1"],["Abaya, Gown, Hijab","/shop?g=women&group=modest"]];
 export default function Header() {
   const path = usePathname(), { count } = useCart();
+  if (path.startsWith("/admin")) return null;
   return (
     <header>
       <div className="r1">

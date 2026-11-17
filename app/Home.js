@@ -5,9 +5,8 @@ import Garment from "./Garment";
 import Card from "./Card";
 import Tile from "./Tile";
 import { IMG } from "./images";
-import { BRANDS, CATS, PRODUCTS, fabricsFor } from "./catalog";
 const T = { men: { bg: "#e7eff6", h: "for him", sub: "Kurtas, shalwar kameez and waistcoats from the brands Pakistan wears.", cat: "kurta" }, women: { bg: "#f8e9ec", h: "for her", sub: "Lawn, three piece sets and formal wear from Pakistan's best loved labels.", cat: "three-piece" } };
-export default function Home() {
+export default function Home({ CATS, BRANDS, PRODUCTS }) {
   const [g, setG] = useState("men"), t = T[g];
   const list = PRODUCTS.filter((p) => p.g === g), brands = BRANDS.filter((b) => b.cats[g].length);
   // Photos: see app/images.js
@@ -37,7 +36,7 @@ export default function Home() {
         <h2 className="h wide">Shop {g} by category</h2>
         <div className="tiles">{CATS[g].map((c) => <Tile key={c[0]} g={g} c={c} href={`/shop?g=${g}&cat=${c[0]}`} />)}</div>
         <h3 className="sub wide">Shop by fabric</h3>
-        <div className="chips">{fabricsFor(g).map((f) => <Link key={f} className="chip wide" href={`/shop?g=${g}&fabric=${encodeURIComponent(f)}`}>{f}</Link>)}</div>
+        <div className="chips">{[...new Set(CATS[g].flatMap((c) => c[4]))].map((f) => <Link key={f} className="chip wide" href={`/shop?g=${g}&fabric=${encodeURIComponent(f)}`}>{f}</Link>)}</div>
       </section>
       {/* SECTION: Featured */}
       <section className="wrap sec">

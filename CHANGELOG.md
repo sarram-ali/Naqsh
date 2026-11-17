@@ -13,3 +13,4 @@
 - v8: Photo slots for the Home poster and hero boxes, category tiles (Home and Shop), brand logos and cover photos, banner (public/site/, see /photo-slots).
 - v9: REMOVED the CSV/data folder, the photo scanning script, /photo-slots and public/site (v7 and v8 above). Every place that needs a photo now has a dummy image in public/images/ (see IMAGES.md); replace a file at the same path to change it.
 - v10: Photo paths are now hard-coded one by one in app/images.js (no pattern function). Folders reorganized: men/, women/, home/, brands/<brand>/. Old: public/images/home|categories|products.
+- v11: Admin page at /admin (Supabase): orders, products with photos and stock, brands, categories, fabrics, earnings graph. Checkout now saves real orders and lowers stock. Without keys the site runs in demo mode.

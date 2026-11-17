@@ -4,14 +4,25 @@ import { useState } from "react";
 import Garment from "../Garment";
 import { useCart } from "../cart";
 import { pkr } from "../catalog";
+import { sb } from "../supabase";
 const STEPS = ["Cart", "Information", "Shipping", "Payment"];
 const PAY = ["Cash on delivery", "Credit / Debit card", "EasyPaisa / JazzCash"];
 export default function Cart() {
   const { items, setQty, key, total, clear } = useCart();
-  const [step, setStep] = useState(1), [f, setF] = useState({}), [pay, setPay] = useState(PAY[0]), [order, setOrder] = useState(null);
+  const [step, setStep] = useState(1), [f, setF] = useState({}), [pay, setPay] = useState(PAY[0]), [order, setOrder] = useState(null), [busy, setBusy] = useState(false), [err, setErr] = useState("");
   const inp = (n, ph, t = "text", req = true) => <input name={n} type={t} required={req} placeholder={ph} value={f[n] || ""} onChange={(e) => setF({ ...f, [n]: e.target.value })} />;
   const go = (n) => (e) => { e.preventDefault(); setStep(n); };
-  const place = () => { setOrder({ id: "NQ-" + Math.floor(100000 + Math.random() * 900000), items, total, pay, f }); clear(); };
+  const place = async () => {
+    let id = "NQ-" + Math.floor(100000 + Math.random() * 900000); // demo mode
+    if (sb) {
+      setBusy(true); setErr("");
+      const { data, error } = await sb.rpc("place_order", { p: { customer: f, payment: pay, items: items.map((i) => ({ slug: i.slug || i.id, name: i.name, size: i.size, color: i.color, qty: i.qty })) } });
+      setBusy(false);
+      if (error) return setErr(error.message.includes("SOLD_OUT") ? "Sorry, " + error.message.split("SOLD_OUT:")[1] + " is sold out in your size. Please change your cart." : "Could not place the order. Please try again.");
+      id = data;
+    }
+    setOrder({ id, items, total, pay, f }); clear();
+  };
   if (order) return (
     <div className="wrap sec tall" style={{ maxWidth: 720 }}>
       <h1 className="h wide">Thank you</h1><p>Your order has been placed successfully.</p>
@@ -47,7 +58,7 @@ export default function Cart() {
         {step === 4 && <div className="form"><h2 className="h wide">Payment method</h2>
           {PAY.map((p) => <label key={p} className={"opt" + (pay === p ? " on" : "")}><input type="radio" name="pay" checked={pay === p} onChange={() => setPay(p)} style={{ width: "auto" }} />{p}</label>)}
           {pay !== PAY[0] && <p style={{ color: "#737b86", fontSize: 13 }}>Online payment is not connected yet. Connect a payment provider before going live.</p>}
-          <div className="btns"><button className="btn wide" onClick={() => setStep(3)}>Back</button><button className="btn fill wide" onClick={place}>Pay PKR {total.toLocaleString("en-PK")}</button></div></div>}
+          {err && <p style={{ color: "#a32" }}>{err}</p>}<div className="btns"><button className="btn wide" onClick={() => setStep(3)}>Back</button><button className="btn fill wide" disabled={busy} onClick={place}>Pay PKR {total.toLocaleString("en-PK")}</button></div></div>}
       </div>
       <aside className="sum"><h2 className="sub wide" style={{ marginTop: 0 }}>Order summary</h2>
         <div className="slist">{items.map((i) => <div className="srow" key={key(i)}><span className="sth"><Garment shape={i.shape || "top"} c={i.hex || "#2b2f36"} img={i.img} /></span><span className="sname">{i.name}<small>{[i.color, i.size].filter(Boolean).join(" / ")}</small></span><span className="sx">x{i.qty}</span><span>{pkr(i.price * i.qty)}</span></div>)}</div>

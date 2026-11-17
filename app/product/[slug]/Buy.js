@@ -6,7 +6,7 @@ import Garment from "../../Garment";
 import { useCart } from "../../cart";
 import { pkr } from "../../catalog";
 export default function Buy({ p }) {
-  const [ci, setCi] = useState(0), [size, setSize] = useState(p.sizes[p.sizes.length > 1 ? 1 : 0]), [added, setAdded] = useState(false);
+  const [ci, setCi] = useState(0), [size, setSize] = useState(p.sizes.find((s) => !p.stock || p.stock[s] > 0) || p.sizes[0]), [added, setAdded] = useState(false);
   const { add } = useCart(), router = useRouter();
   const item = () => ({ id: p.slug, slug: p.slug, name: p.name + " by " + p.brand.name, price: p.price, color: p.colors[ci][0], hex: p.colors[ci][1], size, shape: p.shape, img: p.img });
   return (
@@ -21,10 +21,10 @@ export default function Buy({ p }) {
         <span className="lab wide">Colour: {p.colors[ci][0]}</span>
         <div className="opts">{p.colors.filter((c, i, a) => a.findIndex((x) => x[0] === c[0]) === i).map((c, i) => <button key={c[0]} className={"sw" + (i === ci ? " on" : "")} style={{ background: c[1] }} aria-label={c[0]} onClick={() => setCi(i)} />)}</div>
         <span className="lab wide">Size</span>
-        <div className="opts">{p.sizes.map((s) => <button key={s} className={"sz" + (s === size ? " on" : "")} onClick={() => setSize(s)}>{s}</button>)}</div>
+        <div className="opts">{p.sizes.map((s) => <button key={s} disabled={!!p.stock && p.stock[s] <= 0} className={"sz" + (s === size ? " on" : "")} onClick={() => setSize(s)}>{s}</button>)}</div>
         <div className="acts">
-          <button className="btn wide" onClick={() => { add(item()); setAdded(true); setTimeout(() => setAdded(false), 1500); }}>{added ? "Added" : "Add to cart"}</button>
-          <button className="btn fill wide" onClick={() => { add(item()); router.push("/cart"); }}>Buy now</button>
+          <button className="btn wide" disabled={p.soldOut} onClick={() => { add(item()); setAdded(true); setTimeout(() => setAdded(false), 1500); }}>{added ? "Added" : "Add to cart"}</button>
+          <button className="btn fill wide" disabled={p.soldOut} onClick={() => { add(item()); router.push("/cart"); }}>Buy now</button>
         </div>
       </div>
     </div>

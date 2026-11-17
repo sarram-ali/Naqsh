@@ -11,7 +11,7 @@ export default function Card({ p }) {
         <div className="nm wide">{p.name}</div><div className="br">{p.brand.name}</div>
         <div className="pr">{pkr(p.price)}{p.was && <s>{pkr(p.was)}</s>}</div>
       </Link>
-      <QuickAdd item={item} />
+      {p.soldOut ? <span className="so">Sold out</span> : <QuickAdd item={item} />}
     </div>
   );
 }

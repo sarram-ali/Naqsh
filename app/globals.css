@@ -151,3 +151,12 @@ header{position:sticky;top:0}
 .mq img{height:30px;vertical-align:middle;width:auto}
 .bcard{min-height:220px}.bcard.cover{background-size:cover;background-position:center}.blogo{height:44px;width:auto;max-width:70%;object-fit:contain;align-self:flex-start}
 .slots{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:24px}.slots td{padding:10px;border-bottom:1px solid #e6ebf0}.slots .ok{color:#1f6b57;font-weight:700}.slots .no{color:#a4adb8}
+button:disabled{opacity:.4;cursor:not-allowed}.so{position:absolute;right:10px;top:10px;background:#16191f;color:#fff;padding:6px 10px;font-size:11px}
+.adm{max-width:1100px;margin:0 auto;padding:28px 20px 80px;min-height:100svh}.adm.login{max-width:420px;padding-top:80px}.adm input,.adm select,.adm textarea{font:inherit;padding:10px;border:1px solid #d5dbe2;background:#fff;max-width:100%}
+.admtop{display:flex;gap:20px;align-items:center;justify-content:space-between;margin-bottom:18px}.lnk{text-decoration:underline;color:var(--mid);font-size:13px}.err{color:#a32}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:12px}.acard{background:#f3f6fa;padding:18px}.acard span{display:block;font-size:12px;color:var(--mid);margin-bottom:6px}.acard b{font-size:22px}
+.gbars{display:flex;align-items:flex-end;gap:6px;height:160px;background:#f3f6fa;padding:14px 14px 0}.gb{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}.gb i{display:block;width:100%;background:var(--ink);min-height:2px}.gb span{font-size:11px;color:var(--mid);padding:4px 0}
+.arow{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #e6ebf0;flex-wrap:wrap}.arow img{width:46px;height:58px;object-fit:cover}.noimg{width:46px;height:58px;background:#e6ebf0}
+.prow>span:nth-child(2){flex:1;min-width:200px}.stk{display:flex;gap:10px;flex-wrap:wrap;font-size:13px}.stk button,.arow>button{width:24px;height:24px;border:1px solid #d5dbe2}.stk button.lnk,.arow>button.lnk{width:auto;border:0}
+.aorder{border:1px solid #e6ebf0;padding:14px;margin-bottom:12px}.aorder p{color:var(--mid);line-height:1.6;font-size:14px;margin:8px 0}
+.pform{max-width:640px;margin:16px 0}.pform label{display:grid;gap:6px;font-size:13px;color:var(--mid)}.pform label.chk{display:flex;gap:10px;align-items:center}.thumb{width:80px}.ph{display:inline-grid;gap:4px}.ph img{width:80px;height:100px;object-fit:cover}

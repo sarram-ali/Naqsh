@@ -1,9 +1,13 @@
 import Link from "next/link";
 import Runway from "../Runway";
 import Tile from "../Tile";
-import { PRODUCTS, BRANDS, CATS, SEASONS, fabricsFor } from "../catalog";
+import { SEASONS } from "../catalog";
+import { getCatalog } from "../data";
 export const metadata = { title: "Shop | NAQSH" };
-export default function Shop({ searchParams }) {
+export const dynamic = "force-dynamic";
+export default async function Shop({ searchParams }) {
+  const { PRODUCTS, BRANDS, CATS } = await getCatalog();
+  const fabricsFor = (g, cat) => [...new Set((g ? CATS[g] : [...CATS.men, ...CATS.women]).filter((c) => !cat || c[0] === cat).flatMap((c) => c[4]))];
   const { g = "", cat = "", fabric = "", stitch = "", season = "", brand = "", new: nw = "", sale = "", group = "" } = searchParams;
   const MODEST = ["abaya", "gown", "hijab"];
   const href = (o) => "/shop?" + new URLSearchParams(Object.entries({ g, cat, fabric, stitch, season, brand, new: nw, sale, group, ...o }).filter(([, v]) => v));

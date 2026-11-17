@@ -3,6 +3,7 @@ import "./globals.css";
 import { CartProvider } from "./cart";
 import Header from "./Header";
 import Footer from "./Footer";
+import Hide from "./Hide";
 import BackLink from "./BackLink";
 const wide = Michroma({ weight: "400", subsets: ["latin"], variable: "--font-wide" });
 const body = Inter({ subsets: ["latin"], variable: "--font-body" });
@@ -13,9 +14,9 @@ export default function Root({ children }) {
       <body>
         <CartProvider>
           <Header />
-          <BackLink />
+          <Hide><BackLink /></Hide>
           <div>{children}</div>
-          <Footer />
+          <Hide><Footer /></Hide>
         </CartProvider>
       </body>
     </html>

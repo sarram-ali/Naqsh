@@ -10,5 +10,7 @@
 - Footer: app/Footer.js
 - Back link: app/BackLink.js
 - Photos: public/images/ (folders listed in IMAGES.md, paths in app/images.js)
+- Admin: app/admin/Admin.js (Dashboard, Orders, Products, Brands, Categories, Fabrics), supabase/schema.sql, supabase/seed.sql, SETUP.md
+- Store data loader: app/data.js (Supabase, or the demo data below when no keys)
 - Data: app/catalog.js (brands, categories, fabrics, seasons, new/sale flags, products, photos map IMAGES)
 Older versions live in app/_archive/. To restore one, copy it over the current file and fix its imports.
