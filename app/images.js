@@ -3,21 +3,21 @@
 export const IMG = {
   home: { eidBanner: "/images/home/eid-banner.jpg" },
   men: {
-    banner: "/images/men/banner.jpg", // poster behind the Home toggle
+    banner: "/images/men/hero-men.png", // poster behind the Home toggle
     boxes: ["/images/men/box-1.jpg", "/images/men/box-2.jpg", "/images/men/box-3.jpg"], // 3 boxes on the Home hero
     categories: { // tile photo + 3 product photos for each category
-      "kurta": { tile: "/images/men/categories/kurta/tile.jpg", photos: ["/images/men/categories/kurta/1.jpg", "/images/men/categories/kurta/2.jpg", "/images/men/categories/kurta/3.jpg"] },
-      "polo-tee": { tile: "/images/men/categories/polo-tee/tile.jpg", photos: ["/images/men/categories/polo-tee/1.jpg", "/images/men/categories/polo-tee/2.jpg", "/images/men/categories/polo-tee/3.jpg"] },
-      "shalwar-kameez": { tile: "/images/men/categories/shalwar-kameez/tile.jpg", photos: ["/images/men/categories/shalwar-kameez/1.jpg", "/images/men/categories/shalwar-kameez/2.jpg", "/images/men/categories/shalwar-kameez/3.jpg"] },
-      "shawl": { tile: "/images/men/categories/shawl/tile.jpg", photos: ["/images/men/categories/shawl/1.jpg", "/images/men/categories/shawl/2.jpg", "/images/men/categories/shawl/3.jpg"] },
-      "sherwani": { tile: "/images/men/categories/sherwani/tile.jpg", photos: ["/images/men/categories/sherwani/1.jpg", "/images/men/categories/sherwani/2.jpg", "/images/men/categories/sherwani/3.jpg"] },
-      "trousers": { tile: "/images/men/categories/trousers/tile.jpg", photos: ["/images/men/categories/trousers/1.jpg", "/images/men/categories/trousers/2.jpg", "/images/men/categories/trousers/3.jpg"] },
-      "unstitched": { tile: "/images/men/categories/unstitched/tile.jpg", photos: ["/images/men/categories/unstitched/1.jpg", "/images/men/categories/unstitched/2.jpg", "/images/men/categories/unstitched/3.jpg"] },
-      "waistcoat": { tile: "/images/men/categories/waistcoat/tile.jpg", photos: ["/images/men/categories/waistcoat/1.jpg", "/images/men/categories/waistcoat/2.jpg", "/images/men/categories/waistcoat/3.jpg"] },
+      "kurta": { tile: "/images/men/categories/kurta/men-kurta-pajama.png", photos: ["/images/men/categories/kurta/1.jpg", "/images/men/categories/kurta/2.jpg", "/images/men/categories/kurta/3.jpg"] },
+      "polo-tee": { tile: "/images/men/categories/polo-tee/men-polo-tees.png", photos: ["/images/men/categories/polo-tee/1.jpg", "/images/men/categories/polo-tee/2.jpg", "/images/men/categories/polo-tee/3.jpg"] },
+      "shalwar-kameez": { tile: "/images/men/categories/shalwar-kameez/men-shalwar-kameez.png", photos: ["/images/men/categories/shalwar-kameez/1.jpg", "/images/men/categories/shalwar-kameez/2.jpg", "/images/men/categories/shalwar-kameez/3.jpg"] },
+      "shawl": { tile: "/images/men/categories/shawl/men-shawl.png", photos: ["/images/men/categories/shawl/1.jpg", "/images/men/categories/shawl/2.jpg", "/images/men/categories/shawl/3.jpg"] },
+      "sherwani": { tile: "/images/men/categories/sherwani/men-sherwani.png", photos: ["/images/men/categories/sherwani/1.jpg", "/images/men/categories/sherwani/2.jpg", "/images/men/categories/sherwani/3.jpg"] },
+      "trousers": { tile: "/images/men/categories/trousers/men-trouser.png", photos: ["/images/men/categories/trousers/1.jpg", "/images/men/categories/trousers/2.jpg", "/images/men/categories/trousers/3.jpg"] },
+      "unstitched": { tile: "/images/men/categories/unstitched/unstitched-suit-fibric.png", photos: ["/images/men/categories/unstitched/1.jpg", "/images/men/categories/unstitched/2.jpg", "/images/men/categories/unstitched/3.jpg"] },
+      "waistcoat": { tile: "/images/men/categories/waistcoat/men-waiscoat.png", photos: ["/images/men/categories/waistcoat/1.jpg", "/images/men/categories/waistcoat/2.jpg", "/images/men/categories/waistcoat/3.jpg"] },
     },
   },
   women: {
-    banner: "/images/women/banner.jpg", // poster behind the Home toggle
+    banner: "/images/women/hero-women.png", // poster behind the Home toggle
     boxes: ["/images/women/box-1.jpg", "/images/women/box-2.jpg", "/images/women/box-3.jpg"], // 3 boxes on the Home hero
     categories: { // tile photo + 3 product photos for each category
       "abaya": { tile: "/images/women/categories/abaya/tile.jpg", photos: ["/images/women/categories/abaya/1.jpg", "/images/women/categories/abaya/2.jpg", "/images/women/categories/abaya/3.jpg"] },

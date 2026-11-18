@@ -11,7 +11,7 @@ export default function Home({ CATS, BRANDS, PRODUCTS }) {
   const list = PRODUCTS.filter((p) => p.g === g), brands = BRANDS.filter((b) => b.cats[g].length);
   // Photos: see app/images.js
   const poster = IMG[g].banner, banner = IMG.home.eidBanner;
-  const bg = poster ? `linear-gradient(90deg,rgba(255,255,255,.85),rgba(255,255,255,.15)),url(${poster}) center/cover` : t.bg;
+  const bg = poster ? `url(${poster}) center/cover` : t.bg;
   return (
     <>
       {/* SECTION: Home hero */}
@@ -22,12 +22,12 @@ export default function Home({ CATS, BRANDS, PRODUCTS }) {
           <button className={g === "women" ? "on" : ""} onClick={() => setG("women")}>Women</button>
         </div>
         <div>
-          <p className="wide" style={{ fontSize: 11, letterSpacing: ".16em", color: "#737b86" }}>Eid Edit 2027</p>
+          <p className="wide" style={{ fontSize: 11, letterSpacing: ".16em", color: "#FFFFFF" }}>Eid Edit 2027</p>
           <h1 className="wide" key={g}>Eastern wear {t.h}</h1>
           <p className="hsub">{t.sub}</p>
           <div className="acts"><Link className="btn fill wide" href={`/shop?g=${g}`}>Shop {g}</Link><Link className="btn wide" href="/brands">All brands</Link></div>
         </div>
-        <div className="fl">{[1, 2, 3].map((n) => <Link key={g + n} href={`/shop?g=${g}`} className="fc"><img src={IMG[g].boxes[n - 1]} alt="" /></Link>)}</div>
+        {/* <div className="fl">{[1, 2, 3].map((n) => <Link key={g + n} href={`/shop?g=${g}`} className="fc"><img src={IMG[g].boxes[n - 1]} alt="" /></Link>)}</div> */}
       </section>
       {/* SECTION: Brand strip */}
       <div className="mq"><div>{[...brands, ...brands].map((b, i) => <Link key={i} className="wide" href={`/shop?g=${g}&brand=${b.slug}`}>{b.name}</Link>)}</div></div>
